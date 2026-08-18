@@ -32,10 +32,22 @@ if (!targetUrl) {
     targetUrl = path.resolve(process.cwd(), targetUrl);
 }
 
+function parseDurationMs(val, fallback) {
+    if (val === undefined || val === null || val === '') return fallback;
+    const num = parseFloat(val);
+    if (isNaN(num)) return fallback;
+    // If less than 5, assume seconds (e.g. 0.01s or 0.5s from .env) and convert to ms
+    return num < 5 ? Math.round(num * 1000) : Math.round(num);
+}
+
 const maxSteps = parseInt(args.steps || process.env.MAX_STEPS || '25', 10);
-const headless = args.headless === 'true' || args.headless === true;
-const keyDelay = args.keyDelay ? parseInt(args.keyDelay, 10) : undefined;
-const navDelay = args.navDelay ? parseInt(args.navDelay, 10) : (args.delay ? parseInt(args.delay, 10) : undefined);
+const headless = args.headless === 'true' || args.headless === true || process.env.HEADLESS === 'true';
+
+const rawKeyDelay = args.keyDelay ?? args.key_delay ?? process.env.SIMULATION_KEY_DELAY ?? process.env.KEY_DELAY;
+const rawNavDelay = args.navDelay ?? args.nav_delay ?? args.delay ?? process.env.SIMULATION_NAVIGATION_DELAY ?? process.env.NAV_DELAY;
+
+const keyDelay = parseDurationMs(rawKeyDelay, 10);
+const navDelay = parseDurationMs(rawNavDelay, 500);
 
 async function main() {
     console.log(`

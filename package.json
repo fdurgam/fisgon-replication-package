@@ -10,8 +10,8 @@
   "scripts": {
     "start": "node bin/audit.js",
     "audit": "node bin/audit.js",
-    "demo": "node bin/audit.js --url=./examples/sample-form/index.html --steps=20",
-    "test": "node bin/audit.js --url=./examples/sample-form/index.html --headless=true --steps=15"
+    "demo": "node bin/audit.js --url=./examples/sample-form/index.html --steps=20 --keyDelay=10 --navDelay=500",
+    "test": "node bin/audit.js --url=./examples/sample-form/index.html --headless=true --steps=15 --keyDelay=10 --navDelay=500"
   },
   "keywords": [
     "accessibility",
