@@ -51,7 +51,7 @@ export async function runSimulation(targetUrl, options = {}) {
         console.log(`[Fisgón Engine] Injected NVDA emulator & ${injectedCount} AEvent detection probes.`);
 
         // Initial navigation settling wait
-        await sleep(NAVIGATION_DELAY_MS);
+        await sleep(navDelay);
 
         let k = 0;
         let previousFocusedElement = null;
