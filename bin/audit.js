@@ -34,6 +34,8 @@ if (!targetUrl) {
 
 const maxSteps = parseInt(args.steps || process.env.MAX_STEPS || '25', 10);
 const headless = args.headless === 'true' || args.headless === true;
+const keyDelay = args.keyDelay ? parseInt(args.keyDelay, 10) : undefined;
+const navDelay = args.navDelay ? parseInt(args.navDelay, 10) : (args.delay ? parseInt(args.delay, 10) : undefined);
 
 async function main() {
     console.log(`
@@ -45,7 +47,9 @@ async function main() {
 
     const report = await runSimulation(targetUrl, {
         maxSteps,
-        headless
+        headless,
+        keyDelay,
+        navDelay
     });
 
     // Save report to reports/ directory

@@ -3,8 +3,8 @@ import { askBrain } from '../ai/askBrain.js';
 import { generateRandomPersona } from './personaGenerator.js';
 import { extractWidgetProfile } from './widgetDriver.js';
 
-const KEY_DELAY_MS = 10; // 0.01s minimum interval preventing browser from skipping DOM handlers
-const NAVIGATION_DELAY_MS = 500; // 0.5s minimum time for async DOM/a11y tree updates to settle
+const DEFAULT_KEY_DELAY_MS = 10; // 0.01s default interval preventing browser from skipping DOM handlers
+const DEFAULT_NAV_DELAY_MS = 500; // 0.5s default settling time for async DOM/a11y tree updates
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -13,13 +13,15 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
  */
 export async function runSimulation(targetUrl, options = {}) {
     const maxSteps = options.maxSteps || parseInt(process.env.MAX_STEPS || '30', 10);
+    const keyDelay = options.keyDelay !== undefined ? options.keyDelay : DEFAULT_KEY_DELAY_MS;
+    const navDelay = options.navDelay !== undefined ? options.navDelay : DEFAULT_NAV_DELAY_MS;
     const persona = generateRandomPersona();
     const startTime = Date.now();
 
     console.log('\n' + '='.repeat(70));
     console.log(`🚀 [Fisgón Engine] Starting Simulation on: ${targetUrl}`);
     console.log(`👤 Active Persona: ${persona.nombre} ${persona.apellido} (DNI: ${persona.dni})`);
-    console.log(`⏱️ Timing Configuration: Key Delay = ${KEY_DELAY_MS}ms | Navigation Delay = ${NAVIGATION_DELAY_MS}ms`);
+    console.log(`⏱️ Timing Configuration: Key Delay = ${keyDelay}ms | Navigation Delay = ${navDelay}ms`);
     console.log('='.repeat(70) + '\n');
 
     const env = await initializeVirtualEnvironment(options);
@@ -106,8 +108,8 @@ export async function runSimulation(targetUrl, options = {}) {
             const isButton = activeProfile && (activeProfile.tag === 'button' || activeProfile.type === 'submit');
 
             if (isInput && derivedAction && derivedAction.datosGenerados && !derivedAction.skip) {
-                // Real keyboard typing with 0.01s (10ms) key delay
-                await page.keyboard.type(String(derivedAction.datosGenerados), { delay: KEY_DELAY_MS });
+                // Real keyboard typing with key delay
+                await page.keyboard.type(String(derivedAction.datosGenerados), { delay: keyDelay });
             } else if (isSelect && !derivedAction?.skip) {
                 await page.keyboard.press('ArrowDown');
                 await sleep(50);
@@ -130,8 +132,8 @@ export async function runSimulation(targetUrl, options = {}) {
             // 5. Advance navigation: Press TAB to move focus forward
             await page.keyboard.press('Tab');
 
-            // 6. Navigation delay (0.5s) for async operations and a11y tree to settle
-            await sleep(NAVIGATION_DELAY_MS);
+            // 6. Navigation delay for async operations and a11y tree to settle
+            await sleep(navDelay);
         }
 
         report.stepsExecuted = k;
