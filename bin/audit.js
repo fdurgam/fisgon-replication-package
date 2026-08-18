@@ -40,6 +40,14 @@ function parseDurationMs(val, fallback) {
     return num < 5 ? Math.round(num * 1000) : Math.round(num);
 }
 
+if (args.apiKey || args.api_key || args.geminiKey) {
+    process.env.GEMINI_API_KEY = args.apiKey || args.api_key || args.geminiKey;
+}
+
+if (args.model) {
+    process.env.GEMINI_MODEL = args.model;
+}
+
 const maxSteps = parseInt(args.steps || process.env.MAX_STEPS || '25', 10);
 const headless = args.headless === 'true' || args.headless === true || process.env.HEADLESS === 'true';
 
