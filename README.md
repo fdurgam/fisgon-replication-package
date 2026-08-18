@@ -133,15 +133,21 @@ To run in headless mode:
 npm test
 ```
 
-### B. Audit Any Live Web Application
-Audit an arbitrary target URL by specifying the `--url` parameter:
+### B. Audit Any Live Web Application with Custom Timings
+Audit an arbitrary target URL or local form, customizing the simulation parameters and timing intervals:
 
 ```bash
-npm run audit -- --url="https://example.com/registration" --steps=30
+# Standard run using paper timing specifications (0.01s key delay, 0.5s navigation settling delay)
+npm run audit -- --url="https://example.com/registration" --keyDelay=10 --navDelay=500 --steps=30
+
+# Slow visual inspection mode (e.g., for live demonstration or recording)
+npm run audit -- --url=./examples/sample-form/index.html --keyDelay=100 --navDelay=1500 --steps=20
 ```
 
-#### CLI Options:
-* `--url=<URL|path>`: Target URL or local HTML file path.
+#### CLI Parameters:
+* `--url=<URL|path>`: Target URL or local HTML file path (default: bundled sample form).
+* `--keyDelay=<ms>`: Keystroke interval in milliseconds (default: `10` ms / $0.01\text{s}$, preventing browser from skipping fast DOM event listeners).
+* `--navDelay=<ms>`: Settling delay after `Tab` in milliseconds (default: `500` ms / $0.5\text{s}$, giving time for async mutations and screen reader updates).
 * `--steps=<number>`: Maximum number of keyboard navigation steps (default: `25`).
 * `--headless=<true|false>`: Whether to run Chromium in headless mode (default: `false`).
 
