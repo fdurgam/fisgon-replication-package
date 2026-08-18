@@ -1,0 +1,26 @@
+{
+  "title": "Table 1. Accessibility Events Reported by Fisgón",
+  "data": [
+    { "accessibility_event": "Cognitive Barrier", "SIUT": 0, "SIUG": 0, "DWEB": 1, "CAND": 1, "MIDT": 1, "Total": 3 },
+    { "accessibility_event": "Content Removed w/out Notice", "SIUT": 0, "SIUG": 1, "DWEB": 0, "CAND": 1, "MIDT": 0, "Total": 2 },
+    { "accessibility_event": "Deleted Input Content", "SIUT": 0, "SIUG": 1, "DWEB": 0, "CAND": 0, "MIDT": 0, "Total": 1 },
+    { "accessibility_event": "Misleading Speech Synthesis", "SIUT": 0, "SIUG": 2, "DWEB": 0, "CAND": 0, "MIDT": 0, "Total": 2 },
+    { "accessibility_event": "Missing SR Text", "SIUT": 9, "SIUG": 0, "DWEB": 9, "CAND": 1, "MIDT": 3, "Total": 22 },
+    { "accessibility_event": "Modal Window Display", "SIUT": 1, "SIUG": 2, "DWEB": 2, "CAND": 3, "MIDT": 0, "Total": 8 },
+    { "accessibility_event": "Page Exit Attempt", "SIUT": 0, "SIUG": 1, "DWEB": 0, "CAND": 0, "MIDT": 1, "Total": 2 },
+    { "accessibility_event": "Re enter focus form", "SIUT": 1, "SIUG": 1, "DWEB": 0, "CAND": 1, "MIDT": 1, "Total": 4 },
+    { "accessibility_event": "Re enter focus page", "SIUT": 0, "SIUG": 0, "DWEB": 0, "CAND": 0, "MIDT": 1, "Total": 1 },
+    { "accessibility_event": "Short List Select", "SIUT": 1, "SIUG": 1, "DWEB": 1, "CAND": 0, "MIDT": 0, "Total": 3 },
+    { "accessibility_event": "Skipped Focus Element", "SIUT": 1, "SIUG": 1, "DWEB": 1, "CAND": 1, "MIDT": 1, "Total": 5 },
+    { "accessibility_event": "Unhelpful Label", "SIUT": 1, "SIUG": 2, "DWEB": 23, "CAND": 5, "MIDT": 6, "Total": 37 },
+    { "accessibility_event": "Winding Tab Sequence", "SIUT": 2, "SIUG": 3, "DWEB": 2, "CAND": 0, "MIDT": 0, "Total": 7 }
+  ],
+  "totals": {
+    "SIUT": 16,
+    "SIUG": 15,
+    "DWEB": 39,
+    "CAND": 13,
+    "MIDT": 14,
+    "GrandTotal": 97
+  }
+}

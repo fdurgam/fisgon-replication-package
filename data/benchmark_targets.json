@@ -1,0 +1,37 @@
+[
+  {
+    "code": "SIUT",
+    "name": "SIU Tehuelche",
+    "domain": "Academic Management / Form Administration",
+    "description": "School administration system with dense client-side logic and keyboard-based student registration form.",
+    "aevents_count": 16
+  },
+  {
+    "code": "SIUG",
+    "name": "SIU Guaraní Consultas",
+    "domain": "Academic Management / Student Portal",
+    "description": "Academic management platform with dynamic calendars and real-time asynchronous validation.",
+    "aevents_count": 15
+  },
+  {
+    "code": "DWEB",
+    "name": "Denuncias Web - Ministerio Público de Salta",
+    "domain": "Public Sector / Web Complaints",
+    "description": "Official public sector complaints platform with interactive form validation, iframes and modal overlays.",
+    "aevents_count": 39
+  },
+  {
+    "code": "CAND",
+    "name": "Clube Candeias",
+    "domain": "E-Commerce / Tourism Services",
+    "description": "Brazilian tourism service portal with dynamic booking selectors, carousels and modal windows.",
+    "aevents_count": 13
+  },
+  {
+    "code": "MIDT",
+    "name": "Midtrans Sandbox",
+    "domain": "Fintech / Payment Gateway",
+    "description": "Indonesian payment gateway developer sandbox featuring merchant dashboards and multi-step transaction flows.",
+    "aevents_count": 14
+  }
+]

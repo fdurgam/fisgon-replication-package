@@ -1,0 +1,39 @@
+{
+  "name": "fisgon-replication-package",
+  "version": "1.0.0",
+  "description": "Artifact and Replication Package for the paper: Simulating User Interaction Events to Discover Dynamic Accessibility Smells",
+  "main": "bin/audit.js",
+  "type": "module",
+  "bin": {
+    "fisgon": "./bin/audit.js"
+  },
+  "scripts": {
+    "start": "node bin/audit.js",
+    "audit": "node bin/audit.js",
+    "demo": "node bin/audit.js --url=./examples/sample-form/index.html --steps=20",
+    "test": "node bin/audit.js --url=./examples/sample-form/index.html --headless=true --steps=15"
+  },
+  "keywords": [
+    "accessibility",
+    "web-accessibility",
+    "screen-reader",
+    "nvda",
+    "wcag",
+    "a11y",
+    "keyboard-navigation",
+    "interaction-simulation",
+    "accessibility-smells",
+    "gemini-ai",
+    "puppeteer"
+  ],
+  "author": "Research Team",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.3.1",
+    "puppeteer": "^24.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

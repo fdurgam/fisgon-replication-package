@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment configuration
+.env
+.env.local
+.env.*.local
+
+# Output reports and screenshots
+reports/
+screenshots/
+results/
+recordings/
+*.log
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+.ipynb_checkpoints/

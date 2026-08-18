@@ -1,0 +1,19 @@
+{
+  "title": "Table 4. Precision, Recall, and F1-Score of Fisgón Simulation",
+  "definitions": {
+    "TP": "True Positive: Both the Observer (Fisgón) and Expert detected the event",
+    "FP": "False Positive: Only detected by Observer (Fisgón)",
+    "FN": "False Negative: Only detected by Expert"
+  },
+  "data": [
+    { "website": "SIUT", "TP": 4, "FP": 0, "FN": 0, "precision": 100.0, "recall": 100.0, "f1_score": 100.0 },
+    { "website": "SIUG", "TP": 7, "FP": 1, "FN": 0, "precision": 87.50, "recall": 100.0, "f1_score": 93.33 },
+    { "website": "DWEB", "TP": 5, "FP": 0, "FN": 0, "precision": 100.0, "recall": 100.0, "f1_score": 100.0 },
+    { "website": "CAND", "TP": 3, "FP": 1, "FN": 0, "precision": 75.00, "recall": 100.0, "f1_score": 85.71 },
+    { "website": "MIDT", "TP": 3, "FP": 0, "FN": 1, "precision": 100.0, "recall": 75.00, "f1_score": 85.71 }
+  ],
+  "summary": {
+    "micro_average": { "TP": 22, "FP": 2, "FN": 1, "precision": 91.67, "recall": 95.65, "f1_score": 93.62 },
+    "macro_average": { "precision": 92.50, "recall": 95.00, "f1_score": 92.95 }
+  }
+}

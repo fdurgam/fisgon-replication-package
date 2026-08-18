@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisgón Engine - Interactive Demo Benchmark Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Formulario de Registro de Estudiante</h1>
+            <p class="subtitle">Mock benchmark reproducing dynamic accessibility barriers (SIUT Case Study pattern)</p>
+        </header>
+
+        <!-- Dynamic notification that disappears without announcement (Content Removed Without Notice) -->
+        <div id="dynamic-banner" class="banner">
+            ℹ️ Nota: Las inscripciones para el período 2026 están abiertas.
+        </div>
+
+        <form id="registration-form">
+            <fieldset>
+                <legend>Datos Personales y de Acceso</legend>
+
+                <!-- Pattern 1: Positive Tabindex causing Skipped Focus / Winding Tab Sequence -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipo_doc">Tipo de Documento (*)</label>
+                        <!-- Visually first, but tabindex="14" causes initial focus to skip to Nro Documento -->
+                        <select id="tipo_doc" name="tipo_doc" tabindex="14">
+                            <option value="DNI">DNI - Documento Nacional</option>
+                            <option value="PAS">Pasaporte</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nro_doc">Nro de Documento (*)</label>
+                        <input type="text" id="nro_doc" name="nro_doc" tabindex="1" autofocus placeholder="Ingrese DNI">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="repetir_doc">Repetir Nro Doc (*)</label>
+                        <input type="text" id="repetir_doc" name="repetir_doc" tabindex="2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido (*)</label>
+                        <input type="text" id="apellido" name="apellido" tabindex="3">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre (*)</label>
+                        <input type="text" id="nombre" name="nombre" tabindex="4">
+                    </div>
+
+                    <!-- Pattern 2: Short List Select (<3 options where radio buttons are better) -->
+                    <div class="form-group">
+                        <label for="sexo">Sexo / Género (*)</label>
+                        <select id="sexo" name="sexo" tabindex="5">
+                            <option value="">-- SELECCIONAR --</option>
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fecha_nac">Fecha de Nacimiento (*)</label>
+                        <div class="input-with-button">
+                            <input type="text" id="fecha_nac" name="fecha_nac" tabindex="6" placeholder="DD/MM/AAAA">
+                            <!-- Pattern 3: Modal datepicker launcher triggering Modal Window Display -->
+                            <button type="button" id="btn-datepicker" tabindex="12" title="Abrir Calendario">📅</button>
+                        </div>
+                    </div>
+
+                    <!-- Pattern 4: Unhelpful Label (Missing explicit label, only placeholder) -->
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" tabindex="7" placeholder="Dirección de correo electrónico (*)">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clave">Contraseña (*)</label>
+                        <input type="password" id="clave" name="clave" tabindex="8">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="repetir_clave">Repetir Contraseña (*)</label>
+                        <input type="password" id="repetir_clave" name="repetir_clave" tabindex="9">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="btn-volver" tabindex="10" class="btn-secondary">⬅️ Volver</button>
+                    <button type="submit" id="btn-submit" tabindex="11" class="btn-primary">Crear Usuario</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <!-- Simulated Modal Dialog -->
+        <div id="modal-datepicker" class="modal hidden" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <h3>Seleccionar Fecha</h3>
+                <p>Simulador de selector de fecha emergente sin gestión accesible de foco.</p>
+                <button type="button" id="btn-close-modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-remove banner after 4 seconds to test Content Removed Without Notice
+        setTimeout(() => {
+            const banner = document.getElementById('dynamic-banner');
+            if (banner) banner.style.display = 'none';
+        }, 4000);
+
+        // Datepicker modal toggle
+        const dateBtn = document.getElementById('btn-datepicker');
+        const modal = document.getElementById('modal-datepicker');
+        const closeBtn = document.getElementById('btn-close-modal');
+
+        if (dateBtn && modal) {
+            dateBtn.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                modal.setAttribute('aria-hidden', 'false');
+            });
+        }
+        if (closeBtn && modal) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+            });
+        }
+    </script>
+</body>
+</html>

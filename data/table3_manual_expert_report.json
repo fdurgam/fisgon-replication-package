@@ -1,0 +1,22 @@
+{
+  "title": "Table 3. Accessibility Manual Report (Ground Truth by UX Expert)",
+  "data": [
+    { "accessibility_event": "Cognitive Barrier", "SIUT": 0, "SIUG": 0, "DWE": 1, "CANDEIAS": 1, "MIDT": 1, "Total": 3 },
+    { "accessibility_event": "Content Removed w/out Notice", "SIUT": 0, "SIUG": 1, "DWE": 0, "CANDEIAS": 1, "MIDT": 0, "Total": 2 },
+    { "accessibility_event": "Deleted Input Content", "SIUT": 0, "SIUG": 1, "DWE": 0, "CANDEIAS": 0, "MIDT": 0, "Total": 1 },
+    { "accessibility_event": "Misleading Speech Synthesis", "SIUT": 0, "SIUG": 0, "DWE": 0, "CANDEIAS": 0, "MIDT": 0, "Total": 0 },
+    { "accessibility_event": "Modal Window Display", "SIUT": 1, "SIUG": 2, "DWE": 2, "CANDEIAS": 3, "MIDT": 0, "Total": 8 },
+    { "accessibility_event": "Page Exit Attempt", "SIUT": 0, "SIUG": 1, "DWE": 0, "CANDEIAS": 0, "MIDT": 1, "Total": 2 },
+    { "accessibility_event": "Short List Select", "SIUT": 1, "SIUG": 1, "DWE": 1, "CANDEIAS": 0, "MIDT": 1, "Total": 4 },
+    { "accessibility_event": "Skipped Focus Element", "SIUT": 1, "SIUG": 1, "DWE": 1, "CANDEIAS": 0, "MIDT": 1, "Total": 4 },
+    { "accessibility_event": "Winding Tab Sequence", "SIUT": 1, "SIUG": 1, "DWE": 2, "CANDEIAS": 0, "MIDT": 0, "Total": 4 }
+  ],
+  "totals": {
+    "SIUT": 4,
+    "SIUG": 8,
+    "DWE": 7,
+    "CANDEIAS": 5,
+    "MIDT": 4,
+    "Total": 28
+  }
+}
