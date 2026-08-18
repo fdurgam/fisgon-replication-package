@@ -7,7 +7,6 @@
 This repository is the official **Artifact and Replication Package** for the paper:
 
 > **"Simulating User Interaction Events to Discover Dynamic Accessibility Smells"**  
-> *Under peer review / Accepted for publication.*
 
 ---
 
